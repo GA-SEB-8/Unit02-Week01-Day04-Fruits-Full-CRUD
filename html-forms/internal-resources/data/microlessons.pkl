@@ -1,0 +1,81 @@
+import "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/pkl/template.pkl" as Template
+
+// Add microlessons here, in the order they should be delivered
+
+setup = new Template.Microlesson {
+  friendlyName = "Setup"
+  dirName = "setup"
+  type = "Content"
+  videoUrl = ""
+}
+
+concepts = new Template.Microlesson {
+  friendlyName = "Concepts"
+  dirName = "concepts"
+  type = "Content"
+  videoUrl = ""
+}
+
+theFormElement = new Template.Microlesson {
+  friendlyName = "The Form Element"
+  dirName = "the-form-element"
+  type = "Content"
+  videoUrl = ""
+}
+
+inputElementsAndLabels = new Template.Microlesson {
+  friendlyName = "Input Elements and Labels"
+  dirName = "input-elements-and-labels"
+  type = "Content"
+  videoUrl = ""
+}
+
+buttonElementsInForms = new Template.Microlesson {
+  friendlyName = "Button Elements in Forms"
+  dirName = "button-elements-in-forms"
+  type = "Content"
+  videoUrl = ""
+}
+
+formValidationTechniques = new Template.Microlesson {
+  friendlyName = "Form Validation Techniques"
+  dirName = "form-validation-techniques"
+  type = "Content"
+  videoUrl = ""
+}
+
+accessibilityInWebForms = new Template.Microlesson {
+  friendlyName = "Accessibility in Web Forms"
+  dirName = "accessibility-in-web-forms"
+  type = "Content"
+  videoUrl = ""
+}
+
+theSelectElement = new Template.Microlesson {
+  friendlyName = "The Select Element"
+  dirName = "the-select-element"
+  type = "Content"
+  videoUrl = ""
+}
+
+additionalElementsToEnhanceAccessibility = new Template.Microlesson {
+  friendlyName = "Additional Elements to Enhance Accessibility"
+  dirName = "additional-elements-to-enhance-accessibility"
+  type = "Content"
+  videoUrl = ""
+}
+
+advancedFormValidationAndFeedback = new Template.Microlesson {
+  friendlyName = "Advanced Form Validation and Feedback"
+  dirName = "advanced-form-validation-and-feedback"
+  type = "Content"
+  videoUrl = ""
+}
+
+advancedInputTypes = new Template.Microlesson {
+  friendlyName = "Advanced Input Types"
+  dirName = "advanced-input-types"
+  type = "Content"
+  videoUrl = ""
+}
+
