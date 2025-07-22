@@ -4,14 +4,18 @@
 
 - [Intro To Mongoose Lab][1]
 - [HTML Forms][2]
+- [Fruits App Full CRUD Code Along][3]
+
 
 
 ### Afternoon
 
-- [HTML Forms][3]
+- [Finish Fruits App Full CRUD Code Along][3]
+- [Full CRUD Lab][4]
+
 
 ### Homework
-- [Intro To Mongoose Lab][2]
+- [Full CRUD Lab][4]
 
 
 
