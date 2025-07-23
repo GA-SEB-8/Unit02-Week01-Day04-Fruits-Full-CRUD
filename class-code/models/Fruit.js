@@ -10,3 +10,7 @@ const fruitSchema = new mongoose.Schema({
         Default:false
     }
 },{timestamps:true})
+
+const Fruit = mongoose.model("Fruit",fruitSchema)
+
+module.exports = Fruit
