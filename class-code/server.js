@@ -41,18 +41,22 @@ app.get("/fruits/create",(req,res)=>{
 })
 
 
-app.post("/fruits/create",(req,res)=>{
+app.post("/fruits/create",async (req,res)=>{
     console.log(req.body)
     if(req.body.isReadyToEat === "on"){
         req.body.isReadyToEat = true
     }
     console.log("After",req.body)
     
-    Fruit.create(req.body)
+    await Fruit.create(req.body)
     res.redirect("/fruits")
 })
 
 
+app.get("/fruits",async (req,res)=>{
+    const allFruits = await Fruit.find()
+    res.render("all-fruits.ejs",{allFruits: allFruits})
+})
 
 
 
