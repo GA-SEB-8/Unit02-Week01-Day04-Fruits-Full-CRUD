@@ -48,20 +48,38 @@ app.post("/fruits/create",async (req,res)=>{
     }
     console.log("After",req.body)
     
+    try{
     await Fruit.create(req.body)
     res.redirect("/fruits")
+
+    }catch(error){
+        console.log(error)
+    }
 })
 
 
 app.get("/fruits",async (req,res)=>{
+    try{
     const allFruits = await Fruit.find()
     res.render("all-fruits.ejs",{allFruits: allFruits})
+
+    }
+    catch(error){
+        console.log(error)
+    }
 })
 
 app.get("/fruits/:fruitId",async (req,res)=>{
     console.log(req.params)
+    try{
     const foundFruit = await Fruit.findById(req.params.fruitId)
-    res.render("fruit-details.ejs")
+    console.log(foundFruit)
+    res.render("fruit-details.ejs",{foundFruit})
+
+    }
+    catch(error){
+        console.log(error)
+    }
 })
 
 

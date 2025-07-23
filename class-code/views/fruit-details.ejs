@@ -7,5 +7,14 @@
 </head>
 <body>
     <h1>Fruit Details</h1>
+
+    <p><%= foundFruit.name %></p>
+
+    <% if(foundFruit.isReadyToEat){ %>
+        <p>Fruit is ready to eat</p>
+   <% }else{ %>
+    <p>Fruit is not ready to eat</p>
+   <%}%>
+
 </body>
 </html>
