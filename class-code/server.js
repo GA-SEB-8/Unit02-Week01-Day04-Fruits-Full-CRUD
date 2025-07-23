@@ -2,6 +2,9 @@
 const express = require("express") //importing express package
 const app = express() // creates a express application
 const mongoose = require("mongoose")
+const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
+
+console.log(process.env.YAQOOB)
 
 
 // Middleware
@@ -11,7 +14,7 @@ app.use(express.static('public')); //all static files are in the public folder
 
 async function conntectToDB(){
     try{
-        await mongoose.connect("mongodb+srv://omar1:1234@cluster0.g3jfckx.mongodb.net/fruits?retryWrites=true&w=majority&appName=Cluster0")
+        await mongoose.connect(process.env.MONGODB_URI)
         console.log("Connected to Database")
     }
     catch(error){
