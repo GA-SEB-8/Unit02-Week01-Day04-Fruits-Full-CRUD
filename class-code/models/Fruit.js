@@ -7,7 +7,7 @@ const fruitSchema = new mongoose.Schema({
     },
     isReadyToEat:{
         type:Boolean,
-        Default:false
+        default:false
     }
 },{timestamps:true})
 

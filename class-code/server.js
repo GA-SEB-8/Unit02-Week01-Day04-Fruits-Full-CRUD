@@ -3,8 +3,8 @@ const express = require("express") //importing express package
 const app = express() // creates a express application
 const mongoose = require("mongoose")
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
+const Fruit = require("./models/Fruit")
 
-console.log(process.env.YAQOOB)
 
 
 // Middleware
@@ -43,6 +43,11 @@ app.get("/fruits/create",(req,res)=>{
 
 app.post("/fruits/create",(req,res)=>{
     console.log(req.body)
+    if(req.body.isReadyToEat === "on"){
+        req.body.isReadyToEat = true
+    }
+    console.log("After",req.body)
+    Fruit.create(req.body)
     res.send("SUCCESS")
 })
 
