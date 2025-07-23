@@ -40,6 +40,9 @@ app.get("/fruits/create",(req,res)=>{
 })
 
 
+app.post("/fruits/create",(req,res)=>{
+    res.send("SUCCESS")
+})
 
 
 
