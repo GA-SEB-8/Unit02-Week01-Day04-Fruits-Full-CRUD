@@ -32,6 +32,12 @@ conntectToDB()
 
 
 
+// For posting we need 2 routes
+
+app.get("/fruits/create",(req,res)=>{
+
+    res.render("create.ejs")
+})
 
 
 
