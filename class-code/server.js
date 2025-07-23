@@ -9,6 +9,7 @@ console.log(process.env.YAQOOB)
 
 // Middleware
 app.use(express.static('public')); //all static files are in the public folder
+app.use(express.urlencoded({ extended: false }));
 
 
 
