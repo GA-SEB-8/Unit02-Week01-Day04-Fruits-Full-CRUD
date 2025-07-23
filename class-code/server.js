@@ -47,8 +47,9 @@ app.post("/fruits/create",(req,res)=>{
         req.body.isReadyToEat = true
     }
     console.log("After",req.body)
+    
     Fruit.create(req.body)
-    res.send("SUCCESS")
+    res.redirect("/fruits")
 })
 
 
