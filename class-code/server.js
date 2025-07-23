@@ -9,7 +9,7 @@ console.log(process.env.YAQOOB)
 
 // Middleware
 app.use(express.static('public')); //all static files are in the public folder
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); // this will allow us to see the data being sent in the POST or PUT
 
 
 
@@ -42,6 +42,7 @@ app.get("/fruits/create",(req,res)=>{
 
 
 app.post("/fruits/create",(req,res)=>{
+    console.log(req.body)
     res.send("SUCCESS")
 })
 
