@@ -59,7 +59,8 @@ app.get("/fruits",async (req,res)=>{
 })
 
 app.get("/fruits/:fruitId",async (req,res)=>{
-
+    console.log(req.params)
+    const foundFruit = await Fruit.findById(req.params.fruitId)
     res.render("fruit-details.ejs")
 })
 
