@@ -58,6 +58,11 @@ app.get("/fruits",async (req,res)=>{
     res.render("all-fruits.ejs",{allFruits: allFruits})
 })
 
+app.get("/fruits/:fruitId",async (req,res)=>{
+
+    res.render("fruit-details.ejs")
+})
+
 
 
 app.listen(3000,()=>{
