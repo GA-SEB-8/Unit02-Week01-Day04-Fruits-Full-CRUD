@@ -5,9 +5,12 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
 const Fruit = require("./models/Fruit")
 
+const morgan = require("morgan")
+
 const methodOverride = require("method-override")
 app.use(methodOverride("_method")); // new
 
+app.use(morgan("dev"))
 
 
 
@@ -111,6 +114,14 @@ app.get("/fruits/:id/update",async(req,res)=>{
     }
 })
 
+
+app.put("/fruits/update/:fruitId",async(req,res)=>{
+    if(req.body.isReadyToEat === "on"){
+        req.body.isReadyToEat = true
+    }
+    const updatedFruit = await  Fruit.findByIdAndUpdate(req.params.fruitId, req.body)
+    res.redirect("/fruits")
+})
 
 app.listen(3000,()=>{
     console.log("Listening on port 3000")
