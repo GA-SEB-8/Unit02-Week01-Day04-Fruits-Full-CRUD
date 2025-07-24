@@ -4,6 +4,7 @@ const app = express() // creates a express application
 const mongoose = require("mongoose")
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
 const Fruit = require("./models/Fruit")
+const fruitsRoutes = require("./routes/fruits.routes")
 
 const morgan = require("morgan")
 
@@ -37,91 +38,8 @@ conntectToDB()
 
 
 // Routes go here
+app.use("/fruits",fruitsRoutes)
 
-
-
-// For posting we need 2 routes
-
-app.get("/fruits/create",(req,res)=>{
-
-    res.render("create.ejs")
-})
-
-
-app.post("/fruits/create",async (req,res)=>{
-    console.log(req.body)
-    if(req.body.isReadyToEat === "on"){
-        req.body.isReadyToEat = true
-    }
-    console.log("After",req.body)
-    
-    try{
-    await Fruit.create(req.body)
-    res.redirect("/fruits")
-
-    }catch(error){
-        console.log(error)
-    }
-})
-
-
-app.get("/fruits",async (req,res)=>{
-    try{
-    const allFruits = await Fruit.find()
-    res.render("all-fruits.ejs",{allFruits: allFruits})
-
-    }
-    catch(error){
-        console.log(error)
-    }
-})
-
-app.get("/fruits/:fruitId",async (req,res)=>{
-    console.log(req.params)
-    try{
-    const foundFruit = await Fruit.findById(req.params.fruitId)
-    console.log(foundFruit)
-    res.render("fruit-details.ejs",{foundFruit})
-
-    }
-    catch(error){
-        console.log(error)
-    }
-})
-
-app.delete("/fruits/delete/:id", async (req,res)=>{
-    console.log(req.params)
-    try{
-        const deletedFruit = await Fruit.findByIdAndDelete(req.params.id)
-        res.redirect("/fruits")
-    }
-    catch(error){
-        console.log(error)
-    }
-})
-
-
-
-// UPDATE
-
-app.get("/fruits/:id/update",async(req,res)=>{
-    try{
-        const foundFruit = await Fruit.findById(req.params.id)
-        res.render("fruit-update.ejs",{foundFruit})
-    }
-    catch(error){
-        console.log(error)
-    }
-})
-
-
-app.put("/fruits/update/:fruitId",async(req,res)=>{
-    if(req.body.isReadyToEat === "on"){
-        req.body.isReadyToEat = true
-    }
-    const updatedFruit = await  Fruit.findByIdAndUpdate(req.params.fruitId, req.body)
-    res.redirect("/fruits")
-})
 
 app.listen(3000,()=>{
     console.log("Listening on port 3000")
