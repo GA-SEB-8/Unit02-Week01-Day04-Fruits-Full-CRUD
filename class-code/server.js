@@ -99,6 +99,19 @@ app.delete("/fruits/delete/:id", async (req,res)=>{
 
 
 
+// UPDATE
+
+app.get("/fruits/:id/update",async(req,res)=>{
+    try{
+        const foundFruit = await Fruit.findById(req.params.id)
+        res.render("fruit-update.ejs",{foundFruit})
+    }
+    catch(error){
+        console.log(error)
+    }
+})
+
+
 app.listen(3000,()=>{
     console.log("Listening on port 3000")
 }) // Listen on port 3000
