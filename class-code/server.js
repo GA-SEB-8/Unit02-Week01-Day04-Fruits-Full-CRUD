@@ -5,6 +5,10 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
 const Fruit = require("./models/Fruit")
 
+const methodOverride = require("method-override")
+app.use(methodOverride("_method")); // new
+
+
 
 
 // Middleware
@@ -82,7 +86,7 @@ app.get("/fruits/:fruitId",async (req,res)=>{
     }
 })
 
-app.post("/fruits/delete/:id", async (req,res)=>{
+app.delete("/fruits/delete/:id", async (req,res)=>{
     console.log(req.params)
     try{
         const deletedFruit = await Fruit.findByIdAndDelete(req.params.id)
