@@ -28,7 +28,7 @@ router.post("/create",async (req,res)=>{
 router.get("/",async (req,res)=>{
     try{
     const allFruits = await Fruit.find()
-    res.render("all-fruits.ejs",{allFruits: allFruits})
+    res.render("fruits/all-fruits.ejs",{allFruits: allFruits})
 
     }
     catch(error){
@@ -36,12 +36,17 @@ router.get("/",async (req,res)=>{
     }
 })
 
+
+router.get("/yusef",(req,res)=>{
+    res.send("Yusef route")
+})
+
 router.get("/:fruitId",async (req,res)=>{
     console.log(req.params)
     try{
     const foundFruit = await Fruit.findById(req.params.fruitId)
     console.log(foundFruit)
-    res.render("fruit-details.ejs",{foundFruit})
+    res.render("fruit/fruit-details.ejs",{foundFruit})
 
     }
     catch(error){

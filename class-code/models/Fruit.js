@@ -1,6 +1,6 @@
-const mongoose = require("mongoose")
+const {model, Schema} = require("mongoose")
 
-const fruitSchema = new mongoose.Schema({
+const fruitSchema = new Schema({
     name: {
         type: String,
         required:true
@@ -11,6 +11,6 @@ const fruitSchema = new mongoose.Schema({
     }
 },{timestamps:true})
 
-const Fruit = mongoose.model("Fruit",fruitSchema)
+const Fruit = model("Fruit",fruitSchema)
 
 module.exports = Fruit
