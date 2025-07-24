@@ -16,5 +16,9 @@
     <p>Fruit is not ready to eat</p>
    <%}%>
 
+      <form action="/fruits/delete/<%=foundFruit._id%>?_method=DELETE" method="post">
+    <button type="submit">Delete Fruit</button>
+
+   </form>
 </body>
 </html>

@@ -82,6 +82,17 @@ app.get("/fruits/:fruitId",async (req,res)=>{
     }
 })
 
+app.post("/fruits/delete/:id", async (req,res)=>{
+    console.log(req.params)
+    try{
+        const deletedFruit = await Fruit.findByIdAndDelete(req.params.id)
+        res.redirect("/fruits")
+    }
+    catch(error){
+        console.log(error)
+    }
+})
+
 
 
 app.listen(3000,()=>{
